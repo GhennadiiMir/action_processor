@@ -1,5 +1,2 @@
-class ActionProcessor
-  def self.act!
-    puts "Success!!!"
-  end
-end
+require_relative "./action_processor/errors"
+require_relative "./action_processor/base"
