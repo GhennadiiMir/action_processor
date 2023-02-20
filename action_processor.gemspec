@@ -7,10 +7,12 @@ Gem::Specification.new do |s|
   s.description = "action_processor"
   s.authors     = ["Ghennadii Mirosnicenco", "Pavel Mirosnicenco"]
   s.email       = 'linkator7@gmail.com'
-  s.files       = ["lib/action_processor.rb"]
+  s.files       = ["lib/action_processor.rb", 
+                   "lib/action_processor/errors.rb",
+                   "lib/action_processor/base.rb"]
   s.homepage    =
     'https://rubygems.org/gems/action_processor'
   s.license       = 'MIT'
-  s.add_dependency "active_support", "~> 7.0.0"
-  s.add_dependency "activemodel", "~> 7.0.0"
+  s.add_dependency "activesupport", "~> 7.0.0"
+  s.add_dependency "activerecord", "~> 7.0.0"
 end
