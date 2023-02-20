@@ -201,10 +201,12 @@ instead of `step :validate_lines` since if the `@invoice` will no be found expre
 __Note 2__: We use `step_always` inside the loop through lines since we want to validate all lines and send error messages for all invalid lines to the user.
 
 Inside this instance method we usually list all eloquently named steps
-  # step's code will not be executed if any previous step raise any errors
-  # you can use step_always to define a step which will be executed
-  # even if there are errors, like:
-  #   step_always :define_redirect_url -->
+step's code will not be executed if any previous step raise any errors
+you can use step_always to define a step which will be executed
+even if there are errors, like:
+```ruby
+  step_always :define_redirect_url
+```
 
 ### `fail!` method
 
