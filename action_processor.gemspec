@@ -12,5 +12,5 @@ Gem::Specification.new do |s|
     'https://rubygems.org/gems/action_processor'
   s.license       = 'MIT'
   s.add_dependency "active_support", "~> 7.0.0"
-  s.add_dependency "active_model", "~> 7.0.0"
+  s.add_dependency "activemodel", "~> 7.0.0"
 end
