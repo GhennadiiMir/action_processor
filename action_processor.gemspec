@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'action_processor'
-  s.version     = '0.0.1'
+  s.version     = '0.0.2'
   s.required_ruby_version = '>= 3'
   s.date        = '2023-02-20'
   s.summary     = "Group each of your complex multy-model manipulations in dedicated ActionProcessor"
