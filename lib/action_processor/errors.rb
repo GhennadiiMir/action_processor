@@ -5,7 +5,6 @@ require "active_support/core_ext/hash/indifferent_access"
 module ActionProcessor
   class Errors
     attr_reader :all
-    alias full_messages messages
 
     def initialize
       @all = []
@@ -24,6 +23,8 @@ module ActionProcessor
       end
       all_messages
     end
+
+    alias full_messages messages  # for compatibility with ActiveRecord::Errors
 
     def for_attribute(attr)
       @grouped_by_attribute[attr] 
