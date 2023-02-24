@@ -111,7 +111,7 @@ module ActionProcessor
       params.each do |key, value|
         next if @list_of_allowed_params.index(key.to_s).present?
 
-        fail! "Parameter :#{param} not allowed", key.to_sym
+        fail! "Parameter :#{key} is not allowed", key.to_sym
       end
     end
 

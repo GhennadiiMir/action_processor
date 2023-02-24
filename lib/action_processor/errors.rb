@@ -5,6 +5,7 @@ require "active_support/core_ext/hash/indifferent_access"
 module ActionProcessor
   class Errors
     attr_reader :all
+    alias full_messages messages
 
     def initialize
       @all = []
@@ -16,7 +17,7 @@ module ActionProcessor
     end
 
     # returns array of strings with user friendly error messages
-    def full_messages
+    def messages
       all_messages = []
       @all.each do |e|
         all_messages += e[:messages]
