@@ -2,8 +2,9 @@
 
 require "active_support/core_ext/hash/indifferent_access"
 require "active_record"
+require_relative "errors"
 
-module ActionProcessor 
+module ActionProcessor
   class Base
     attr_reader :params, :errors
 
@@ -14,11 +15,11 @@ module ActionProcessor
     end
 
     def initialize(params = {})
-      @params = if params.class.name == 'Hash'
-                  params.with_indifferent_access
-                else
-                  params
-                end
+      @params = if params.instance_of? Hash
+        params.with_indifferent_access
+      else
+        params
+      end
       @errors = ActionProcessor::Errors.new
       @steps_stack = []
       @transaction_level = ActiveRecord::Base.connection.open_transactions
@@ -44,12 +45,12 @@ module ActionProcessor
 
     # in most cases should be overriden to provide relevant data
     def successful_json
-      { success: true }
+      {success: true}
     end
 
     # could be overriden to provide some specifics/advices/etc.
     def failed_json
-      { success: false, errors: errors.grouped_by_attribute }
+      {success: false, errors: errors.grouped_by_attribute}
     end
 
     def step(step_method, **options)
@@ -62,7 +63,7 @@ module ActionProcessor
       @steps_stack << (@current_step || :not_specified)
       @current_step = step_method
       # performs even if there are errors
-      # useful for: 
+      # useful for:
       #  - validation steps to return list of all errors
       #  - errors reporting and making decisions at the end of processing
       send step_method, **options
@@ -76,6 +77,8 @@ module ActionProcessor
     def fail!(errs, attr = :not_specified)
       if errs.class.ancestors.map(&:to_s).include?("ActiveRecord::Base")
         fail_active_record!(errs)
+      elsif errs.instance_of? ActionProcessor::Errors
+        @errors.concat errs
       else
         @errors.add(errs, @current_step, attr)
       end
@@ -92,7 +95,7 @@ module ActionProcessor
       @list_of_allowed_params ||= []
       @list_of_allowed_params += list.map(&:to_s)
       list.map(&:to_s).each do |param|
-        next if params[param].present?
+        next unless params[param].nil?
 
         fail! "Parameter :#{param} should be present", param
       end
