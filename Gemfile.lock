@@ -62,6 +62,8 @@ GEM
     mutex_m (0.2.0)
     nokogiri (1.16.2-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.16.2-x86_64-linux)
+      racc (~> 1.4)
     psych (5.1.2)
       stringio
     racc (1.7.3)
@@ -89,7 +91,7 @@ GEM
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
     rake (13.1.0)
-    rdoc (6.6.2)
+    rdoc (6.6.3.1)
       psych (>= 4.0.0)
     reline (0.4.2)
       io-console (~> 0.5)
@@ -104,6 +106,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   action_processor (= 0.0.8)!
