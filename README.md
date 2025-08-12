@@ -7,7 +7,7 @@ behind this approach could be found in [wiki](https://github.com/GhennadiiMir/ac
 
 `action_processor` gem is a tool for organizing and executing complex business logic in a structured, step-by-step manner.
 
-This gem addresses the [cross-cutting concern[https://en.wikipedia.org/wiki/Cross-cutting_concern]] of **cohesion** and **modularity** by providing a clear, centralized place to define a sequence of actions. Instead of scattering logic for a single process (like sending money) across multiple controllers, models, and service objects, `ActionProcessor` consolidates it into a single, cohesive class.
+This gem addresses the [cross-cutting concern](https://en.wikipedia.org/wiki/Cross-cutting_concern) of **cohesion** and **modularity** by providing a clear, centralized place to define a sequence of actions. Instead of scattering logic for a single process (like sending money) across multiple controllers, models, and service objects, `ActionProcessor` consolidates it into a single, cohesive class.
 
 Here's how `action_processor` relates to cross-cutting concerns:
 
