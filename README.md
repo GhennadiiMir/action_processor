@@ -16,7 +16,7 @@ Here's how `action_processor` relates to cross-cutting concerns:
 * **Error Handling:** It centralizes error handling with the `fail!` method, separating the logic of what went wrong from the core business steps. This allows for a uniform way to handle validation and failure, and the `ActionProcessor::Errors` class provides a structured way to access and present errors. This prevents error handling code from being scattered throughout the application.
 * **Input Validation:** The `required_params` and `allowed_params` methods provide a simple, declarative way to validate input at the very beginning of the process. This separates the concern of parameter validation from the main business logic steps.
 
-In summary, the gem's design promotes a **Single Responsibility Principle** for complex operations, which is a key strategy for managing cross-cutting concerns and improving code modularity. It provides a standardized and reusable structure for processes, moving common functionalities like transaction management, validation, and error reporting out of individual steps and into the overarching framework.
+In summary, the gem's design promotes a [**Single Responsibility Principle**](https://en.wikipedia.org/wiki/Single-responsibility_principle) for complex operations, which is a key strategy for managing cross-cutting concerns and improving code modularity. It provides a standardized and reusable structure for processes, moving common functionalities like transaction management, validation, and error reporting out of individual steps and into the overarching framework.
 
 ## Quick start
 
